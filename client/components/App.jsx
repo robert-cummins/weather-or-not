@@ -21,11 +21,9 @@ class App extends React.Component {
   render() {
     return (
       <>
-
         <button onClick={this.handleClick} type="button">Weather or Not</button>
         {this.props.showPage == 'home' && <Home />}
-        {this.props.showPage == 'weather' &&   <><WeatherWeek /> <ActivityList /></>}
-        
+        {this.props.showPage == 'weather' &&   <><WeatherWeek /> </>}     
       
 
         

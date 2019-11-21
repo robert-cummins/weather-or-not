@@ -10,12 +10,7 @@ import showPage from './showPage'
 export default combineReducers({
   weather,
   activities,
-
   selectedData,
-  showPage
-
+  showPage,
   day,
- 
-
-
 })

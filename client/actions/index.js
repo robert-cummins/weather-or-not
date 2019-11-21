@@ -77,7 +77,6 @@ export const shapeData = (data) => {
 
 
 export const showPage = (pageName) => {
-  console.log(pageName)
   return {
     type: 'GET_PAGE',
     pageName
