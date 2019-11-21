@@ -12,6 +12,7 @@ exports.up = function(knex) {
       table.string('showers'),
       table.string('heavy_cloud'),
       table.string('light_cloud')
+      table.string('clear')
   })
 };
 
