@@ -1,21 +1,22 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { getWeather } from '../actions'
+import React from "react";
+import { connect } from "react-redux";
+import { getWeather } from "../actions";
 
-import WeatherWeek from './WeatherWeek'
-import ActivityList from './ActivityList'
-import Home from './Home'
-
+import WeatherWeek from "./WeatherWeek";
+import ActivityList from "./ActivityList";
+import Home from "./Home";
 
 const App = () => {
   return (
     <>
       <h1>Weather or Not</h1>
       {/* <Home /> */}
-      <WeatherWeek />
-      {/* <ActivityList /> */}
+      <div class="container-fluid">
+        <WeatherWeek />
+        {/* <ActivityList /> */}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default connect()(App)
+export default connect()(App);
