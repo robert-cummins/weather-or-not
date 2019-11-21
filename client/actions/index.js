@@ -14,7 +14,6 @@ export function fetchWeather() {
     return request
       .get(`/api/v1/weather`)
       .then(res => {
-        console.log(res.body)
         let processedWeather = processWeather(res.body)
 
         dispatch(getWeather(processedWeather))
@@ -26,6 +25,7 @@ export function fetchWeather() {
 function processWeather(weatherData) {
   return weatherData.consolidated_weather.map(dayWeather => {
     return {
+      
       date: dayWeather.applicable_date,
       weather: dayWeather.weather_state_name,
       weatherImg: "https://www.metaweather.com/static/img/weather/png/" + dayWeather.weather_state_abbr + ".png",
@@ -48,7 +48,7 @@ export function fetchActivities () {
     return request
       .get(`/v1/activities`)
       .then(res => {
-        dispatch(getActivities(processedActivities))
+        dispatch(getActivities(res.body))
       })
       
   }
