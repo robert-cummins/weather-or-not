@@ -14,11 +14,13 @@ class WeatherWeek extends React.Component {
 
 
   render() {
+
+
     return (
       <>
         {this.props.weather ? (
           <section>
-            <h5>Wellington</h5>
+            <h5>{this.props.selectedData.cityName}</h5>
             <div className="container">
               <ul
                 className="nav nav-pills nav-justified"
