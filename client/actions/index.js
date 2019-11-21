@@ -34,3 +34,21 @@ function processWeather(weatherData) {
     }
   })
 }
+
+export const getActivities = (activities) => {
+  return {
+    type: 'GET_ACTIVITIES',
+    activities
+  }
+}
+
+export function fetchActivities () {
+  return (dispatch) => {
+    return request
+      .get(`/v1/activities`)
+      .then(res => {
+        dispatch(getActivities(processedActivities))
+      })
+      
+  }
+}
