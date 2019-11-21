@@ -24,7 +24,7 @@ class Home extends React.Component{
         
         }
         if(!(document.getElementById(event.target.id).checked)){
-            let newArr = this.state.activities.filter(activity => activity !== event.target.id)
+            let newArr = this.state.activities.filter(activity => activity !== event.target.value)
             this.setState({
                 activities: newArr
             })
@@ -52,11 +52,11 @@ class Home extends React.Component{
                     <option value="580778">Bordeaux</option>
                 </select> 
                 <input onChange={this.handleChange} type="checkbox" id="washing" value="washing"></input>Washing
-                <input onChange={this.handleChange} type="checkbox" id="mountainBiking" value="mountainBiking"></input>Mountain Biking
+                <input onChange={this.handleChange} type="checkbox" id="mountainBiking" value="mountain_biking"></input>Mountain Biking
                 <input onChange={this.handleChange} type="checkbox" name="" id="raving" value="raving"></input>Raving
-                <input onChange={this.handleChange} type="checkbox" name="" id="indoorActivities" value="indoorActivities"></input>Indoor Activities
-                <input onChange={this.handleChange} type="checkbox" name="" id="windSurfing" value="windSurfing"></input>Wind Surfing
-                <input onChange={this.handleChange} type="checkbox" name="" id="beachDay" value="beachDay"></input>Beach Day
+                <input onChange={this.handleChange} type="checkbox" name="" id="indoorActivities" value="indoor_activities"></input>Indoor Activities
+                <input onChange={this.handleChange} type="checkbox" name="" id="windSurfing" value="wind_surfing"></input>Wind Surfing
+                <input onChange={this.handleChange} type="checkbox" name="" id="beachDay" value="beach_day"></input>Beach Day
                 <input onChange={this.handleChange} type="checkbox" name="" id="stargazing" value="stargazing"></input>Stargazing
                 <button onClick={this.handleSubmit} type="submit">Submit</button>
             </form>
