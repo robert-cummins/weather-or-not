@@ -8,50 +8,56 @@ class WeatherWeek extends React.Component {
         {this.props.weather ? (
           <section>
             <h5>Wellington</h5>
-            {this.props.weather.map((day, i) => {
-              return (
-                <article key={i} id={day.date}>
-                  <div className="container">
-                    <ul
-                      class="nav nav-pills nav-justified flex-column flex-sm-row"
-                      id="myTab"
-                      role="tablist"
-                    >
-                      <li class="nav-item">
+            <div className="container">
+              <ul
+                className="nav nav-pills nav-justified"
+                id="myTab"
+                role="tablist"
+              >
+                {this.props.weather.map((day, i) => {
+                  return (
+                    <>
+                      <li className="nav-item" key={i} id={day.date}>
                         <a
-                          class="flex-sm-fill text-sm-center nav-link active"
-                          id="home-tab"
+                          className="flex-sm-fill text-sm-center nav-link"
+                          id={`home-${i}-tab`}
                           data-toggle="tab"
-                          href="#home"
+                          href={`#home-${i}`}
                           role="tab"
-                          aria-controls="home"
+                          aria-controls={`home-${i}`}
                           aria-selected="true"
                         >
-                          Home
+                          {day.date}
                         </a>
                       </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
+                    </>
+                  );
+                })}
+              </ul>
+              <div className="tab-content" id="myTabContent">
+                {this.props.weather.map((day, i) => {
+                  return (
+                    <>
                       <div
-                        class="tab-pane fade show active"
-                        id="home"
+                        key={i}
+                        id={day.date}
+                        className="tab-pane fade"
+                        id={`home-${i}`}
                         role="tabpanel"
-                        aria-labelledby="home-tab"
+                        aria-labelledby={`home-${i}-tab`}
                       >
-                        Data
+                        <p>Date: {day.date}</p>
+                        <p>Weather: {day.weather}</p>
+                        {/* <img className="icon" src={day.weatherImg} /> */}
+                        <p>Temp: {Math.floor(day.temp)}</p>
+                        <p>Wind: {day.windDirection}</p>
+                        <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
                       </div>
-                    </div>
-                  </div>
-                  <p>Date: {day.date}</p>
-                  <p>Weather: {day.weather}</p>
-                  <img className="icon" src={day.weatherImg} />
-                  <p>Temp: {Math.floor(day.temp)}</p>
-                  <p>Wind: {day.windDirection}</p>
-                  <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
-                  <hr />
-                </article>
-              );
-            })}
+                    </>
+                  );
+                })}
+              </div>
+            </div>
           </section>
         ) : (
           <h1>Data loading, please wait...</h1>
