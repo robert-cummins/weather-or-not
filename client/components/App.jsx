@@ -11,9 +11,9 @@ const App = () => {
   return (
     <>
       <h1>Weather or Not</h1>
-      <Home />
+      {/* <Home /> */}
       <WeatherWeek />
-      <ActivityList />
+      {/* <ActivityList /> */}
     </>
   )
 }
