@@ -53,3 +53,11 @@ export function fetchActivities () {
       
   }
 }
+
+export const shapeData = (data) => {
+  console.log(data + 'from shape')
+  return {
+    type: 'SEND_DATA',
+    data
+  }
+}
