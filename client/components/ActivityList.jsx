@@ -5,7 +5,6 @@ import { fetchActivities } from '../actions'
 
 class ActivityList extends React.Component {
 
-
   componentDidMount() {
     this.props.dispatch(fetchActivities())
   }
@@ -33,7 +32,8 @@ class ActivityList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    activities: state.activities
+    activities: state.activities,
+    weather: state.weather
   }
 }
 
