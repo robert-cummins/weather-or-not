@@ -9,6 +9,8 @@ import Home from './Home'
 
 class App extends React.Component {
 
+
+
   componentDidMount() {
 
     this.props.dispatch(fetchWeather())
@@ -27,10 +29,4 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
-  return {
-    weather: state.weather
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect()(App)

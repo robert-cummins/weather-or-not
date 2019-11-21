@@ -1,7 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { setDayIndex } from '../actions'
+
 class WeatherWeek extends React.Component {
+
+
+
+
+
 
   render() {
     return (
@@ -17,6 +24,7 @@ class WeatherWeek extends React.Component {
                 <p>Temp: {Math.floor(day.temp)}</p>
                 <p>Wind: {day.windDirection}</p>
                 <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
+                <button onClick={() => this.props.dispatch(setDayIndex(i))}>Show Activities</button>
                 <hr />
               </article>
             })}

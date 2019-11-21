@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export const GET_WEATHER = 'GET_WEATHER'
+export const SET_DAY = 'SET_DAY'
 
 export const getWeather = (weather) => {
   return {
@@ -51,5 +52,18 @@ export function fetchActivities () {
         dispatch(getActivities(res.body))
       })
       
+  }
+}
+
+export function setDayIndex(dayIndex) {
+  return (dispatch) => {
+    return dispatch(setDay(dayIndex))
+  }
+}
+
+export const setDay = (dayIndex) => {
+  return {
+    type: SET_DAY,
+    dayIndex
   }
 }
