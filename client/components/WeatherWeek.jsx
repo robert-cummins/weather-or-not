@@ -15,14 +15,15 @@ class WeatherWeek extends React.Component {
       <>
         {this.props.weather ?
           <section>
+            <h5>Wellington</h5>
             {this.props.weather.map((day, i) => {
               return <article key={i}>
-              <p>Date: {day.date}</p>
-              <p>Weather: {day.weather}</p>
-              <img className="icon" src={day.weatherImg}/>
-              <p>Temp: {Math.floor(day.temp)}</p>
-              <p>Wind: {day.windDirection}</p>
-              <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>  
+                <p>Date: {day.date}</p>
+                <p>Weather: {day.weather}</p>
+                <img className="icon" src={day.weatherImg} />
+                <p>Temp: {Math.floor(day.temp)}</p>
+                <p>Wind: {day.windDirection}</p>
+                <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
                 <hr />
               </article>
             })}
