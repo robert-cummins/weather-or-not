@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchWeather } from "../actions";
 
 import WeatherWeek from "./WeatherWeek";
-import ActivityList from "./ActivityList";
+
 import Home from "./Home";
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
         <h1>Weather or Not</h1>
         <Home />
         <WeatherWeek />
-        <ActivityList />
+        
       </>
     );
   }

@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import ActivityList from "./ActivityList";
+
+import { setDayIndex } from '../actions'
+
 class WeatherWeek extends React.Component {
   render() {
     return (
@@ -26,8 +30,14 @@ class WeatherWeek extends React.Component {
                           role="tab"
                           aria-controls={`home-${i}`}
                           aria-selected="true"
+                          onClick={() => this.props.dispatch(setDayIndex(i))}
                         >
-                          {day.date}
+                          <p>Date: {day.date}</p>
+                          <p>Weather: {day.weather}</p>
+                          {/* <img className="icon" src={day.weatherImg} /> */}
+                          <p>Temp: {Math.floor(day.temp)}</p>
+                          <p>Wind: {day.windDirection}</p>
+                          <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
                         </a>
                       </li>
                     </>
@@ -46,22 +56,18 @@ class WeatherWeek extends React.Component {
                         role="tabpanel"
                         aria-labelledby={`home-${i}-tab`}
                       >
-                        <p>Date: {day.date}</p>
-                        <p>Weather: {day.weather}</p>
-                        {/* <img className="icon" src={day.weatherImg} /> */}
-                        <p>Temp: {Math.floor(day.temp)}</p>
-                        <p>Wind: {day.windDirection}</p>
-                        <p>Wind speed: {Math.floor(day.windSpeed)} km/h</p>
+                        <ActivityList />
                       </div>
                     </>
                   );
                 })}
               </div>
             </div>
+
           </section>
         ) : (
-          <h1>Data loading, please wait...</h1>
-        )}
+            <h1>Data loading, please wait...</h1>
+          )}
       </>
     );
   }

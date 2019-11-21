@@ -12,15 +12,25 @@ class ActivityList extends React.Component {
   render() {
     return (
       <>
-        {this.props.activities ?
+        {this.props.weather.length > 0 ?
           <section>
             <h5>Activities</h5>
-            {this.props.activities.map((activity, i) => {
-              return <article key={i}>
-                <p>{activity.activity_name}</p>
-                <hr />
-              </article>
-            })}
+            {
+              this.props.activities.map((activity, i) => {
+                let daysWeather = this.props.weather[this.props.day].weather.toLowerCase().replace(" ", "_")
+
+                let activityName = activity.activity_name.charAt(0).toUpperCase() + activity.activity_name.slice(1).replace("_", " ")
+
+                if (activity[daysWeather] == 1) {
+                  return <h3 key={"activity" + i}>{activityName}: YES</h3>
+                }
+                else {
+                  return <h3 key={"activity" + i}>{activityName}: NOT</h3>
+                }
+
+              })
+
+            }
           </section>
           : <h1>Data loading, please wait...</h1>
         }
@@ -33,7 +43,8 @@ class ActivityList extends React.Component {
 const mapStateToProps = (state) => {
   return {
     activities: state.activities,
-    weather: state.weather
+    weather: state.weather,
+    day: state.day
   }
 }
 
