@@ -9,7 +9,7 @@ export const getWeather = (weather) => {
   }
 }
 
-export function fetchWeather () {
+export function fetchWeather() {
   return (dispatch) => {
     return request
       .get(`/api/v1/weather`)
@@ -19,7 +19,7 @@ export function fetchWeather () {
 
         dispatch(getWeather(processedWeather))
       })
-      
+
   }
 }
 
@@ -27,9 +27,10 @@ function processWeather(weatherData) {
   return weatherData.consolidated_weather.map(dayWeather => {
     return {
       weather: dayWeather.weather_state_name,
-      weatherImg: dayWeather.weather_state_abbr,
-      temp: dayWeather.the_temp
-
+      weatherImg: "https://www.metaweather.com/static/img/weather/png/" + dayWeather.weather_state_abbr + ".png",
+      temp: dayWeather.the_temp,
+      windDirection: dayWeather.wind_direction_compass,
+      windSpeed: dayWeather.wind_speed
     }
   })
 }
