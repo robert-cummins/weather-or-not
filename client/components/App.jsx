@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchWeather, showPage } from '../actions'
+import { showPage } from '../actions'
 
 
 
@@ -10,9 +10,7 @@ import WeatherWeek from "./WeatherWeek";
 import Home from "./Home";
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchWeather());
-  }
+
   handleClick = (event) =>{
     event.preventDefault()
     this.props.dispatch(showPage('home'))
@@ -34,8 +32,6 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-
-    weather: state.weather,
     showPage: state.showPage
   }
 }

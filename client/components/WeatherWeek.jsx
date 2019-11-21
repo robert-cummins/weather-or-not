@@ -3,9 +3,16 @@ import { connect } from "react-redux";
 
 import ActivityList from "./ActivityList";
 
-import { setDayIndex } from '../actions'
+import { fetchWeather, setDayIndex } from '../actions'
 
 class WeatherWeek extends React.Component {
+
+
+  componentDidMount() {
+    this.props.dispatch(fetchWeather(this.props.selectedData.city));
+  }
+
+
   render() {
     return (
       <>

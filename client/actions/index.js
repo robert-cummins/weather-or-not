@@ -10,10 +10,10 @@ export const getWeather = (weather) => {
   }
 }
 
-export function fetchWeather() {
+export function fetchWeather(cityId) {
   return (dispatch) => {
     return request
-      .get(`/api/v1/weather`)
+      .get(`/api/v1/weather/` + cityId)
       .then(res => {
         let processedWeather = processWeather(res.body)
 
