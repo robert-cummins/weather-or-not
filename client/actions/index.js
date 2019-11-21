@@ -14,8 +14,22 @@ export function fetchWeather () {
     return request
       .get(`/api/v1/weather`)
       .then(res => {
-        dispatch(getWeather(res.body))
+
+        let processedWeather = processWeather(res)
+
+        dispatch(getWeather(processedWeather))
       })
       
   }
+}
+
+function processWeather(weatherData) {
+  return weatherData.consolidated_weather.map(dayWeather => {
+    return {
+      weather: dayWeather.weather_state_name,
+      weatherImg: dayWeather.weather_state_abbr,
+      temp: dayWeather.the_temp
+
+    }
+  })
 }
