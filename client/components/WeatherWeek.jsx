@@ -1,13 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchWeather } from "../actions";
-
 class WeatherWeek extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchWeather());
-  }
-
   render() {
     return (
       <>
