@@ -1,19 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {shapeData} from '../actions'
+import {showPage} from '../actions'
 
 class Home extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             city: '',
-            activities: []
+            activities: [],
         }
     }
     
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.dispatch(shapeData(this.state))
+        this.props.dispatch(showPage('weather'))
     }
     
     handleChange = (event) => {
