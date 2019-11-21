@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {shapeData} from '../actions'
 
 class Home extends React.Component{
     constructor(props){
@@ -11,6 +13,7 @@ class Home extends React.Component{
     
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.dispatch(shapeData(this.state))
     }
     
     handleChange = (event) => {
@@ -62,4 +65,4 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+export default connect()(Home)
