@@ -3,15 +3,24 @@ import { connect } from "react-redux";
 
 import ActivityList from "./ActivityList";
 
-import { setDayIndex } from '../actions'
+import { fetchWeather, setDayIndex } from '../actions'
 
 class WeatherWeek extends React.Component {
+
+
+  componentDidMount() {
+    this.props.dispatch(fetchWeather(this.props.selectedData.city));
+  }
+
+
   render() {
+
+
     return (
       <>
         {this.props.weather ? (
           <section>
-            <h5>Wellington</h5>
+            <h5>{this.props.selectedData.cityName}</h5>
             <div className="container">
               <ul
                 className="nav nav-pills nav-justified"
@@ -75,7 +84,8 @@ class WeatherWeek extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    weather: state.weather
+    weather: state.weather,
+    selectedData: state.selectedData
   };
 };
 

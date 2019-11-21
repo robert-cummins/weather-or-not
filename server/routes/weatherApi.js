@@ -3,11 +3,11 @@ const router = express.Router()
 
 const apiRequest = require('superagent')
 
-const wellyUrl = 'https://www.metaweather.com/api/location/2351310/'
+const url = 'https://www.metaweather.com/api/location/'
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   apiRequest
-  .get(wellyUrl)
+  .get(url + req.params.id)
   .then(x => res.send(x.body))
 })
 

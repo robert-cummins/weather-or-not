@@ -1,6 +1,5 @@
-function showPage (state = 'home', action){
-    console.log(action)
-    switch(action.type){
+function showPage(state = 'home', action) {
+    switch (action.type) {
         case 'GET_PAGE':
             return action.pageName
         default:

@@ -21,14 +21,17 @@ class ActivityList extends React.Component {
 
                 let activityName = activity.activity_name.charAt(0).toUpperCase() + activity.activity_name.slice(1).replace("_", " ")
 
-                if (activity[daysWeather] == 1) {
-                  return <h3 key={"activity" + i}>{activityName}: YES</h3>
-                }
-                else {
-                  return <h3 key={"activity" + i}>{activityName}: NOT</h3>
-                }
+                if (this.props.selectedData.activities.includes(activity.activity_name)) {
 
-              })
+                  if (activity[daysWeather] == 1) {
+                    return <h3 key={"activity" + i}>{activityName}: YES</h3>
+                  }
+                  else {
+                    return <h3 key={"activity" + i}>{activityName}: NOT</h3>
+                  }
+                }
+              }
+              )
 
             }
           </section>
@@ -44,7 +47,8 @@ const mapStateToProps = (state) => {
   return {
     activities: state.activities,
     weather: state.weather,
-    day: state.day
+    day: state.day,
+    selectedData: state.selectedData
   }
 }
 

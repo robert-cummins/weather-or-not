@@ -13,4 +13,4 @@ export default combineReducers({
   selectedData,
   showPage,
   day,
- })
+})

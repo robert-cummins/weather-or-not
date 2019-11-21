@@ -10,10 +10,10 @@ export const getWeather = (weather) => {
   }
 }
 
-export function fetchWeather() {
+export function fetchWeather(cityId) {
   return (dispatch) => {
     return request
-      .get(`/api/v1/weather`)
+      .get(`/api/v1/weather/` + cityId)
       .then(res => {
         let processedWeather = processWeather(res.body)
 
@@ -26,7 +26,6 @@ export function fetchWeather() {
 function processWeather(weatherData) {
   return weatherData.consolidated_weather.map(dayWeather => {
     return {
-
       date: dayWeather.applicable_date,
       weather: dayWeather.weather_state_name,
       weatherImg: "https://www.metaweather.com/static/img/weather/png/" + dayWeather.weather_state_abbr + ".png",
@@ -69,6 +68,7 @@ export const setDay = (dayIndex) => {
 }
 
 export const shapeData = (data) => {
+  //console.log(data)
   return {
     type: 'SEND_DATA',
     data
@@ -77,7 +77,6 @@ export const shapeData = (data) => {
 
 
 export const showPage = (pageName) => {
-  console.log(pageName)
   return {
     type: 'GET_PAGE',
     pageName
