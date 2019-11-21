@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import weather from './weather'
 import activities from './activities'
+import day from './day'
 import selectedData from './selectedData'
 import showPage from './showPage'
 
@@ -9,7 +10,12 @@ import showPage from './showPage'
 export default combineReducers({
   weather,
   activities,
+
   selectedData,
   showPage
+
+  day,
+ 
+
 
 })

@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export const GET_WEATHER = 'GET_WEATHER'
+export const SET_DAY = 'SET_DAY'
 
 export const getWeather = (weather) => {
   return {
@@ -25,7 +26,7 @@ export function fetchWeather() {
 function processWeather(weatherData) {
   return weatherData.consolidated_weather.map(dayWeather => {
     return {
-      
+
       date: dayWeather.applicable_date,
       weather: dayWeather.weather_state_name,
       weatherImg: "https://www.metaweather.com/static/img/weather/png/" + dayWeather.weather_state_abbr + ".png",
@@ -43,14 +44,27 @@ export const getActivities = (activities) => {
   }
 }
 
-export function fetchActivities () {
+export function fetchActivities() {
   return (dispatch) => {
     return request
       .get(`/v1/activities`)
       .then(res => {
         dispatch(getActivities(res.body))
       })
-      
+
+  }
+}
+
+export function setDayIndex(dayIndex) {
+  return (dispatch) => {
+    return dispatch(setDay(dayIndex))
+  }
+}
+
+export const setDay = (dayIndex) => {
+  return {
+    type: SET_DAY,
+    dayIndex
   }
 }
 
@@ -61,6 +75,7 @@ export const shapeData = (data) => {
   }
 }
 
+
 export const showPage = (pageName) => {
   console.log(pageName)
   return {
@@ -68,3 +83,4 @@ export const showPage = (pageName) => {
     pageName
   }
 }
+
