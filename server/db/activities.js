@@ -1,5 +1,6 @@
-const config = require('../../knexfile').development
-const connection = require('knex')(config)
+const config = require('../../knexfile')
+const env = process.env.NODE_ENV || 'development'
+const connection = require('knex')(config[env])
 
 
 function getAllActivities(db = connection){
