@@ -29,3 +29,9 @@
   height: 64px;
   margin-bottom: 24px;
 }
+
+.home-holder {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 0px 20px 20px;
+}

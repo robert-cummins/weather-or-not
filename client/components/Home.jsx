@@ -75,8 +75,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Welcome To Weather Or Not</h1>
+      <div className="home-holder">
+        <h1>Where</h1>
+        <p className="text-muted">Where is of concern?</p>
         <form>
           <select onChange={this.selectCity}>
             <option>Select a City</option>
@@ -102,16 +103,18 @@ class Home extends React.Component {
               value="washing"
             ></input>
             Washing
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               id="mountainBiking"
               value="mountain_biking"
             ></input>
             Mountain Biking
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               name=""
@@ -119,8 +122,9 @@ class Home extends React.Component {
               value="raving"
             ></input>
             Raving
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               name=""
@@ -128,8 +132,9 @@ class Home extends React.Component {
               value="indoor_activities"
             ></input>
             Indoor Activities
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               name=""
@@ -137,8 +142,9 @@ class Home extends React.Component {
               value="wind_surfing"
             ></input>
             Wind Surfing
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               name=""
@@ -146,8 +152,9 @@ class Home extends React.Component {
               value="beach_day"
             ></input>
             Beach Day
+            <br />
             <input
-              className="ml-4 mr-1"
+              className="mr-1"
               onChange={this.handleChange}
               type="checkbox"
               name=""
