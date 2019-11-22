@@ -11,7 +11,7 @@ import Home from "./Home";
 
 class App extends React.Component {
 
-  handleClick = (event) =>{
+  handleClick = (event) => {
     event.preventDefault()
     this.props.dispatch(showPage('home'))
   }
@@ -19,12 +19,15 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.handleClick} type="button">Weather or Not</button>
-        {this.props.showPage == 'home' && <Home />}
-        {this.props.showPage == 'weather' &&   <><WeatherWeek /> </>}     
-      
+        <nav className="navbar bg-dark">
+          <button className="navbar-brand btn btn-light" onClick={this.handleClick} type="button">Home</button>
+        </nav>
 
-        
+        {this.props.showPage == 'home' && <Home />}
+        {this.props.showPage == 'weather' && <><WeatherWeek /> </>}
+
+
+
       </>
     );
   }
