@@ -24,10 +24,10 @@ class ActivityList extends React.Component {
                 if (this.props.selectedData.activities.includes(activity.activity_name)) {
 
                   if (activity[daysWeather] == 1) {
-                    return <h3 key={"activity" + i}>{activityName}: YES</h3>
+                    return <h3 key={"activity" + i}>{activityName}: Yeah Mate 😄 </h3>
                   }
                   else {
-                    return <h3 key={"activity" + i}>{activityName}: NOT</h3>
+                    return <h3 key={"activity" + i}>{activityName}: Not Today 😔 </h3>
                   }
                 }
               }

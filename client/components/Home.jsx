@@ -2,14 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { shapeData } from "../actions";
 import { showPage, fetchWeather } from "../actions";
+import Swal from 'sweetalert2'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "2351310",
-      activities: ["wind_surfing"],
-      cityName: "Wellington"
+      city: "",
+      activities: [],
+      cityName: ""
     };
   }
 
@@ -18,10 +19,17 @@ class Home extends React.Component {
   }
 
   handleSubmit = event => {
+    event.preventDefault();
     if (this.state.city == "" || this.state.activities.length <= 0) {
-      alert("Please select a city and one or more activities");
+      Swal.fire({
+          title: "SHIIIIIIIIIT!",
+          text: "Please select a city and one or more activities you moron!",
+          icon: 'error',
+        confirmButtonText: 'Sorry Boss'
+
+      });
     } else {
-      event.preventDefault();
+      
       this.props.dispatch(shapeData(this.state));
       this.props.dispatch(showPage("weather"));
     }
