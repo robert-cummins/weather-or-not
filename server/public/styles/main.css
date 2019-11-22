@@ -1,0 +1,31 @@
+.nav-item {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #efefef;
+}
+
+.tab-content {
+  padding: 20px;
+  background-color: #efefef;
+  border-radius: 10px;
+}
+
+.nav-item:first-child {
+  margin-left: 0px;
+}
+
+.nav-item:last-child {
+  margin-right: 0px;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+}
