@@ -1,6 +1,4 @@
 
-// import test from 'tape'
-
 // import { ADD_TO_CART } from '../client/actions'
 // import cart from '../client/reducers/cart'
 
@@ -19,3 +17,7 @@
 //   t.deepEqual(actual, expected, 'item was added to cart')
 //   t.end()
 // })
+
+test('test is working', function() {
+    expect(1+1).toEqual(2)
+})

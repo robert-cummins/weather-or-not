@@ -1,3 +1,10 @@
+test('test is working', function() {
+    expect(1+1).toEqual(2)
+})
+
+
+
+
 // import test from 'tape'
 // import {
 //   addToCart,
