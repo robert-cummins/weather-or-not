@@ -7,6 +7,9 @@ router.get('/', (req, res) => {
     .then(activities => {
         res.json(activities)
     })
+    .catch(err => {
+        console.error(err)
+    })
 })
 
 module.exports = router
