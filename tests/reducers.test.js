@@ -1,21 +1,27 @@
 
-// import test from 'tape'
+//import test from 'tape'
 
-// import { ADD_TO_CART } from '../client/actions'
-// import cart from '../client/reducers/cart'
+import { shapeData } from '../client/actions';
 
-// test('Cart returns the proper array', t => {
-//   const action = {
-//     type: ADD_TO_CART,
-//     id: 4
-//   }
-//   const expected = [{
-//     id: 4,
-//     quantity: 1
-//   }]
+test('sends Data through to global state', t => {
+  const action = {
+    type: 'SEND_DATA',
+    data: {
+      activities: ['hello', 'world'],
+      city: '123',
+      cityName: 'HELLO'
+    }
+  }
+  const expected = {
+    activities: ['hello', 'world'],
+    city: '123',
+    cityName: 'HELLO'
+  }
 
-//   const actual = cart(undefined, action)
+  const actual = shapeData(action)
 
-//   t.deepEqual(actual, expected, 'item was added to cart')
-//   t.end()
-// })
+  expect(actual.data.data).toEqual(expected)
+
+  // t.deepEqual(actual, expected, 'success')
+  // t.end()
+})
