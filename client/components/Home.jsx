@@ -76,27 +76,28 @@ class Home extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="p-5 mx-auto ">
                 <h1>Welcome To Weather Or Not</h1>
-                <form>
-                    <label>Choose your City</label>
-                    <select onChange={this.selectCity}>
+                <form className="mt-3">
+                    <select className="p-2 m-2" onChange={this.selectCity}>
                         <option>Select a City</option>
                         <option id="Auckland" value="2348079">Auckland</option>
                         <option id="Wellington" value="2351310">Wellington</option>
                         <option id="Christchurch" value="2348327">Christchurch</option>
                         <option id="Bordeaux" value="580778">Bordeaux</option>
                     </select>
-                    <input onChange={this.handleChange} type="checkbox" id="washing" value="washing"></input>Washing
-                <input onChange={this.handleChange} type="checkbox" id="mountainBiking" value="mountain_biking"></input>Mountain Biking
-                <input onChange={this.handleChange} type="checkbox" name="" id="raving" value="raving"></input>Raving
-                <input onChange={this.handleChange} type="checkbox" name="" id="indoorActivities" value="indoor_activities"></input>Indoor Activities
-                <input onChange={this.handleChange} type="checkbox" name="" id="windSurfing" value="wind_surfing"></input>Wind Surfing
-                <input onChange={this.handleChange} type="checkbox" name="" id="beachDay" value="beach_day"></input>Beach Day
-                <input onChange={this.handleChange} type="checkbox" name="" id="stargazing" value="stargazing"></input>Stargazing
-                <button onClick={this.handleSubmit} type="submit">Submit</button>
+                    <div className="m-2">
+                        <input className="mr-1" onChange={this.handleChange} type="checkbox" id="washing" value="washing"></input>Washing
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" id="mountainBiking" value="mountain_biking"></input>Mountain Biking
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" name="" id="raving" value="raving"></input>Raving
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" name="" id="indoorActivities" value="indoor_activities"></input>Indoor Activities
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" name="" id="windSurfing" value="wind_surfing"></input>Wind Surfing
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" name="" id="beachDay" value="beach_day"></input>Beach Day
+                        <input className="ml-4 mr-1" onChange={this.handleChange} type="checkbox" name="" id="stargazing" value="stargazing"></input>Stargazing
+                    </div>
+                    <button className="m-2" onClick={this.handleSubmit} type="submit">Submit</button>
                 </form>
-            </>
+            </div>
         )
     }
 }
