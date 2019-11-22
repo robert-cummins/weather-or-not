@@ -2,10 +2,19 @@ test('test is working', function() {
     expect(1+1).toEqual(2)
 })
 
+import {setDay} from '../client/actions'
+
+test('set day returns the correct array index', (done) => {
+    setDay(3, (err, actual) => {
+        const expected = {dayIndex:3, type: "SET_DAY"}
+        expect (err).toBeNull()
+        expect(actual).toEqual(expected)
+        done() 
+    })
+   
+})
 
 
-
-// import test from 'tape'
 // import {
 //   addToCart,
 //   navigate,
