@@ -11,16 +11,27 @@ export const getWeather = (weather) => {
 }
 
 export function fetchWeather(cityId) {
-  return (dispatch) => {
-    return request
-      .get(`/api/v1/weather/` + cityId)
-      .then(res => {
-        let processedWeather = processWeather(res.body)
 
-        dispatch(getWeather(processedWeather))
-      })
-
+  if (!cityId){
+    return({
+      type: GET_WEATHER,
+      weather: []
+    })
   }
+  else {
+    return (dispatch) => {
+      return request
+        .get(`/api/v1/weather/` + cityId)
+        .then(res => {
+          let processedWeather = processWeather(res.body)
+  
+          dispatch(getWeather(processedWeather))
+        })
+  
+    }
+  }
+
+
 }
 
 function processWeather(weatherData) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { shapeData } from '../actions'
-import { showPage } from '../actions'
+import { showPage, fetchWeather } from '../actions'
 
 class Home extends React.Component {
     constructor(props) {
@@ -13,10 +13,19 @@ class Home extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch(fetchWeather());
+    }
+
     handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.dispatch(shapeData(this.state))
-        this.props.dispatch(showPage('weather'))
+        if (this.state.city == "" || this.state.activities.length <= 0) {
+            alert("Please select a city and one or more activities")
+        }
+        else {
+            event.preventDefault()
+            this.props.dispatch(shapeData(this.state))
+            this.props.dispatch(showPage('weather'))
+        }
     }
 
     handleChange = (event) => {
