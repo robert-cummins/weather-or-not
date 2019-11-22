@@ -33,7 +33,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'activities'
+      tableName: 'knex_migrations'
     }
   }
 
